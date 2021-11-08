@@ -11,14 +11,34 @@ public class PlayerController : MonoBehaviour
     [Header("Components")]
     public Rigidbody rig;
     public MeshRenderer mr;
+    public Material mat;
 
-    [Header ("StateAndCopy")]
+    [Header ("State")]
     public IPlayerState currentState;
 
+    [Header("Strategy&Composition")]
+    public IPlayerPhysics myPhysics;
 
-    void Awake()
+
+
+    public void SetPhysics(IPlayerPhysics setPhysics)
+    {
+        myPhysics = setPhysics;
+    }
+    public void SetMesh(IPlayerPhysics setMesh)
+    {
+        myPhysics = setMesh;
+    }
+    public void Awake()
     {
         currentState = new StandingPlayerState();
+        mat = this.GetComponent<Renderer>().material;
+       
+    }
+
+    public void Start()
+    {
+        SetColor();
     }
 
     void Update()
@@ -26,12 +46,15 @@ public class PlayerController : MonoBehaviour
         currentState.Execute(this);
 
         Move();
-
+        
         if (Input.GetKeyDown(KeyCode.Space))
-            TryJump();
+        {
+            Debug.Log("tryjump");
+            Jump();
+        }
     }
 
-    void Move()
+    public void Move()
     {
         // get the input axis
         float x = Input.GetAxis("Horizontal");
@@ -45,13 +68,14 @@ public class PlayerController : MonoBehaviour
         rig.velocity = dir;
     }
 
-    void TryJump()
+    public void Jump()
     {
-        // create a ray facing down
-        Ray ray = new Ray(transform.position, Vector3.down);
+        myPhysics.Jump(); //bad
+        Debug.Log("after"); // is getting called
+    }
 
-        // shoot the raycast
-        if (Physics.Raycast(ray, 1.5f))
-            rig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+    public void SetColor()
+    {
+        myPhysics.SetColor();
     }
 }
