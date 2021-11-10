@@ -19,8 +19,6 @@ public class PlayerController : MonoBehaviour
     [Header("Strategy&Composition")]
     public IPlayerPhysics myPhysics;
 
-
-
     public void SetPhysics(IPlayerPhysics setPhysics)
     {
         myPhysics = setPhysics;
@@ -49,29 +47,20 @@ public class PlayerController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("tryjump");
+            //Debug.Log("tryjump");
             Jump();
         }
     }
 
     public void Move()
     {
-        // get the input axis
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        // calculate a direction relative to where the player is facing
-        Vector3 dir = (transform.forward * z + transform.right * x) * moveSpeed;
-        dir.y = rig.velocity.y;
-
-        // set as velocity
-        rig.velocity = dir;
+        myPhysics.Speed();
     }
 
     public void Jump()
     {
-        myPhysics.Jump(); //bad
-        Debug.Log("after"); // is getting called
+        myPhysics.Jump(); 
+        //Debug.Log("after"); 
     }
 
     public void SetColor()

@@ -8,7 +8,7 @@ public class PurplePhysics : IPlayerPhysics
 
     public void Jump()
     {
-        Debug.Log("jump");
+        //Debug.Log("jump");
         playerC = GameObject.Find("Player").GetComponent<PlayerController>();
         playerC.jumpForce = 10;
 
@@ -22,11 +22,25 @@ public class PurplePhysics : IPlayerPhysics
 
     public void Speed()
     {
-        Debug.Log("speed");
+        playerC = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerC.moveSpeed = 7;
+
+        // get the input axis
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        // calculate a direction relative to where the player is facing
+        Vector3 dir = (playerC.transform.forward * z + playerC.transform.right * x) * playerC.moveSpeed;
+        dir.y = playerC.rig.velocity.y;
+
+        // set as velocity
+        playerC.rig.velocity = dir;
     }
     public void SetColor()
     {
-        Debug.Log("color");
+        //Debug.Log("color");
+        playerC = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerC.mat.color = Color.magenta;
     }
     public void Strength()
     {

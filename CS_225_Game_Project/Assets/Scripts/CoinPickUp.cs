@@ -34,11 +34,13 @@ public class CoinPickUp : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            Debug.Log(money);
+            Debug.Log("player has: "+money);
+            _gm.coins += money;
+            Destroy(gameObject);
         }
     }
 }

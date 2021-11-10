@@ -17,4 +17,9 @@ public class SceneManager : MonoBehaviour
         selection = sel;
         UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
     }
+
+    public void GameOverScene()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("End");
+    }
 }
