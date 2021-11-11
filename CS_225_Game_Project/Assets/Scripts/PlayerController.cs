@@ -14,10 +14,10 @@ public class PlayerController : MonoBehaviour
     public Material mat;
 
     [Header ("State")]
-    public IPlayerState currentState;
+    public IPlayerState currentState; // object composition
 
     [Header("Strategy&Composition")]
-    public IPlayerPhysics myPhysics;
+    public IPlayerPhysics myPhysics; // oc
 
     public void SetPhysics(IPlayerPhysics setPhysics)
     {

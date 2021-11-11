@@ -43,9 +43,9 @@ public class Barrier : MonoBehaviour
 
         int totalDamage = 0;
 
-        Damage1.setDamage(4);
+        Damage1.setDamage(150);
         Damage1.setLevelHardness(1);
-        Damage2.setDamage(6);
+        Damage2.setDamage(200);
         Damage2.setLevelHardness(2);
 
         Damage3 = Damage1 + Damage2;
