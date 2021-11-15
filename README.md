@@ -8,6 +8,7 @@ How to Play:
 - Left-Shift to Duck
 - Space to Jump
 - AWSD Keys to Move
+- 'F' to change views
 - Use your mouse to Look Around
 (click ont the game to make it lock)
 (press 'ESC' to get your mouse back)
