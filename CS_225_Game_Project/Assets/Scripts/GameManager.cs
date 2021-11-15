@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         if (health <= 0)
             playerAlive = false;
 
-        if (coins >= 200)
+        if (coins >= 400)
             WinGame();
 
         if (!playerAlive)
@@ -65,6 +65,6 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
-        sceneManager.GameOverScene();
+        sceneManager.GameWinnerScene();
     }
 }

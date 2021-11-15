@@ -10,7 +10,7 @@ public class BluePhysics : IPlayerPhysics
     {
         //Debug.Log("jump");
         playerC = GameObject.Find("Player").GetComponent<PlayerController>();
-        playerC.jumpForce = 5;
+        playerC.jumpForce = 7;
 
         // create a ray facing down
         Ray ray = new Ray(playerC.transform.position, Vector3.down);

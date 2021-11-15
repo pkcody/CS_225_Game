@@ -22,4 +22,9 @@ public class SceneManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("End");
     }
+
+    public void GameWinnerScene()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Winner");
+    }
 }

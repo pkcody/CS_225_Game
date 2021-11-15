@@ -30,7 +30,7 @@ public class ColorSpam : MonoBehaviour
 
     public IEnumerator RunColor()
     {
-        WaitForSeconds wait = new WaitForSeconds(2f);
+        WaitForSeconds wait = new WaitForSeconds(1f);
 
         for (int x = 0; x< colorList.Count; x++) // for loop
         {

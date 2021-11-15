@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     public IPlayerState currentState; // object composition
 
     [Header("Strategy&Composition")]
-    public IPlayerPhysics myPhysics; // oc
+    public IPlayerPhysics myPhysics; // object composition
 
     public void SetPhysics(IPlayerPhysics setPhysics)
     {

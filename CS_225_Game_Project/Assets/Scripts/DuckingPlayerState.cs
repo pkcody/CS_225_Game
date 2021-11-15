@@ -14,7 +14,7 @@ public class DuckingPlayerState : IPlayerState
         player.currentState = this;
 
         changeScale = new Vector3((float)0.5, (float)0.25, (float)0.5);
-        rb.transform.localScale += changeScale;
+        rb.transform.localScale -= changeScale;
     }
     public void Execute(PlayerController player)
     {
